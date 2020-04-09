@@ -1,0 +1,59 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">模拟考试</view>
+</cu-custom>
+<view class="margin padding radius shadow shadow-lg bg-grey flex-direction schoolsel">
+  你有100道题，请作答，这是第{{count+1}}道
+</view>
+
+<view>
+  <form bindsubmit="formSubmit2">
+    <view class="margin-top-lg cu-form-group align-start">
+		  <textarea maxlength="-1"  placeholder="{{ti.ti_id}}、{{ti.ti}}" disabled="true"></textarea>
+	  </view>
+  	<radio-group class="block" name="answer" wx:if="{{ischoose}}">
+		  <view class="cu-form-group margin-top">
+			<view class="title">A、{{ti.a}}</view>
+			<radio class="radio" value="a" checked></radio>
+		  </view>
+		  <view class="cu-form-group">
+			<view class="title">B、{{ti.b}}</view>
+			<radio class="radio" value="b"></radio>
+		  </view>
+      <view class="cu-form-group">
+			<view class="title">C、{{ti.c}}</view>
+			<radio class="radio" value="c"></radio>
+		  </view>
+      <view class="cu-form-group">
+			<view class="title">D、{{ti.d}}</view>
+			<radio class="radio" value="d"></radio>
+		  </view>
+	</radio-group >
+  <radio-group class="block" name="answer" wx:else>
+    <view class="cu-form-group margin-top">
+			<view class="title">1、√</view>
+			<radio class="radio" value="1" checked></radio>
+		  </view>
+		  <view class="cu-form-group">
+			<view class="title">0、×</view>
+			<radio class="radio" value="0"></radio>
+		  </view>
+  </radio-group >
+      <view wx:if="{{!isdati && count !=100}}" class="padding flex flex-direction">
+        <button class="cu-btn bg-grey lg" formType="submit">确定</button>
+      </view>
+      <view wx:elif="{{count !=100}}" class="padding flex flex-direction">
+        <button class="cu-btn bg-orange lg" bindtap="next">下一题</button>
+      </view>
+      <view wx:else class="padding flex flex-direction">
+        <button class="cu-btn bg-orange lg" bindtap="sumall">查看结果</button>
+      </view>
+  </form>
+</view>
+<view wx:if="{{isfinish}}" class="margin-top padding  shadow shadow-lg bg-white flex-direction schoolsel">
+  <text>得分：{{truecount}}\n</text>
+  <text>--------------错题--------------</text>
+  <view class="cuo-item" wx:for="{{cuolist}}" wx:key="{{item.tihao}}">
+    <text >题号：{{item.tihao}},我的选择：{{item.my}},正确答案：{{item.daan}}</text>
+  </view>
+</view>

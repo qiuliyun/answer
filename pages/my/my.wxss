@@ -1,0 +1,26 @@
+page{
+  background-color: #D2F1F0
+}
+.myhead{
+  justify-content: space-around
+}
+.integral{
+  margin-top: 70rpx;
+  width: 120rpx;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.integral image{
+  width: 120rpx;
+  height: 120rpx
+}
+.mytou{
+  margin-top: 30rpx
+}
+
+.schoolsel view{
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+}

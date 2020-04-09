@@ -1,0 +1,10 @@
+/* pages/index/index.wxss */
+.tupian{
+  width: 100%;
+  height: 500rpx;
+}
+.timu{
+  text-align: center;
+  font-size: 40rpx;
+  line-height: 400rpx
+}

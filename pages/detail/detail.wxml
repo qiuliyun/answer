@@ -1,0 +1,11 @@
+<cu-custom bgColor="bg-gradual-red">
+  <view slot="content">首页</view>
+</cu-custom>
+<view class="tupian bg-gradual-red flex-direction timu padding-lg" >
+  <text class="margin-top-xl">技能鉴定练习</text>
+</view>
+<view class="padding flex flex-direction">
+    <button class="cu-btn bg-gradual-orange lg margin-top-xl" bindtap="onetest">单题练习</button>
+    <button class="cu-btn bg-gradual-pink  lg margin-top-xl" bindtap="test">模拟考试</button>
+</view>
+

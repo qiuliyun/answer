@@ -1,0 +1,55 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">单题练习</view>
+</cu-custom>
+<form bindsubmit="formSubmit">
+  <view class="cu-form-group">
+		<view class="title">题号</view>
+		<input placeholder="" name="ti_id"></input>
+		<button class="cu-btn bg-green shadow" formType="submit">搜索</button>
+  </view>
+</form>
+<view>
+  <form bindsubmit="formSubmit2">
+    <view class="margin-top-lg cu-form-group align-start">
+		  <textarea maxlength="-1"  placeholder="{{ti.ti_id}}、{{ti.ti}}" disabled="true"></textarea>
+	  </view>
+  	<radio-group class="block" name="answer" wx:if="{{ischoose}}">
+		  <view class="cu-form-group margin-top">
+			<view class="title">A、{{ti.a}}</view>
+			<radio class="radio" value="a" checked></radio>
+		  </view>
+		  <view class="cu-form-group">
+			<view class="title">B、{{ti.b}}</view>
+			<radio class="radio" value="b"></radio>
+		  </view>
+      <view class="cu-form-group">
+			<view class="title">C、{{ti.c}}</view>
+			<radio class="radio" value="c"></radio>
+		  </view>
+      <view class="cu-form-group">
+			<view class="title">D、{{ti.d}}</view>
+			<radio class="radio" value="d"></radio>
+		  </view>
+	</radio-group >
+  <radio-group class="block" name="answer" wx:else>
+    <view class="cu-form-group margin-top">
+			<view class="title">1、√</view>
+			<radio class="radio" value="1" checked></radio>
+		  </view>
+		  <view class="cu-form-group">
+			<view class="title">0、×</view>
+			<radio class="radio" value="0"></radio>
+		  </view>
+  </radio-group >
+      <view class="padding flex flex-direction">
+        <button class="cu-btn bg-grey lg" formType="submit">确定</button>
+      </view>
+  </form>
+</view>
+<view wx:if="{{!istrue}}"> 
+  <view class="margin-top-lg padding shadow shadow-lg bg-orange flex-direction schoolsel">
+        答题错误！！！，正确答案：{{ti.trueAnswer}}
+  </view>
+</view>
+

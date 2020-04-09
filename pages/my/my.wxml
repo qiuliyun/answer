@@ -1,0 +1,33 @@
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">我的主页</view>
+</cu-custom>
+<view class="margin padding-sm radius shadow shadow-lg  bg-cyan">
+   <view class="flex myhead">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class='cu-btn round bg-green shadow'> 登录 </button>
+    <block wx:else>
+      <view class='text-center'>
+        <view bindtap="selschool" class="cu-avatar xl round solids mytou" style="background-image:url({{userInfo.avatarUrl}})"></view>
+        <view class="padding">{{userInfo.nickName}}</view>
+      </view>
+    </block>
+  </view> 
+</view>
+
+
+<view class="margin padding radius shadow shadow-lg bg-grey flex-direction schoolsel">
+  <view bindtap="showModal" data-target="Modal">关于</view>
+</view>
+
+<view class="cu-modal {{modalName=='Modal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">关于</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      <text>本软件ui模板参考color-ui\n制作人：雷神的锤锤，版本：v1.0</text>
+    </view>
+  </view>
+</view>
